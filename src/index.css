@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.p-50\% {
+   padding: 50%;
+}
+
 .bg-backdrop {
   background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.55) 40%);
 }
