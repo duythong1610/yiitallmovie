@@ -61,7 +61,7 @@ const Banner = (props: any) => {
 
   return (
     <>
-      <div className="w-full h-full bg-backdrop">
+      <div className="w-full h-full bg-backdrop pt-50%">
         <MovieDialog
           handleClose={handleClose}
           open={open}
@@ -87,7 +87,7 @@ const Banner = (props: any) => {
                   className="group"
                 > */}
 
-                <div className="w-1/2 h-full">
+                <div className="w-1/2 h-full ">
                   <div className=" w-1/2 absolute h-full bg-backdrop ">
                     <div className="absolute bottom-40 left-10 mobile:bottom-10">
                       <h1 className="font-extrabold mobile:text-xl lg:text-5xl text-emerald-300 mb-5 mobile:mb-0">
