@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.bg-backdrop {
+  background: linear-gradient(to left, transparent, rgba(0, 0, 0, 0.55) 40%);
+}
+
+.br-button {
+  background-color: rgb(164 164 175 / 70%);
+}

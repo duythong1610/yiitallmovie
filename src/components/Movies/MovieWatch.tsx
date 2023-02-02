@@ -6,7 +6,7 @@ export const MovieWatch = (props: any) => {
   const { data } = props;
   console.log(data);
 
-  const movieId = useParams().id;
+  const { movieId } = useParams();
 
   console.log(movieId);
   return (
