@@ -13,17 +13,13 @@ import { HomeFilms, Item } from "../shared/types";
 import { resizeImage } from "../shared/utils";
 import { MovieWatch } from "../components/Movies/MovieWatch";
 import Banner from "../components/Banner/Banner";
-import { MovieDialog } from "../components/Movies/MovieDialog";
+// import { MovieDialog } from "../components/Movies/MovieDialog";
 // import { HomeFilms } from "../../shared/types";
 
 const Home = () => {
   const [listMovie, setListMovie] = useState<HomeFilms>();
   const [listMovieDetails, setListMovieDetails] = useState<Item>();
   const [details, serDetails] = useState(false);
-
-
-
-
 
   useEffect(() => {
     getHomeMovies().then((res: HomeFilms) => setListMovie(res));
@@ -42,7 +38,6 @@ const Home = () => {
   return (
     <React.Fragment>
       <div className="sm:container mx-auto">
-  
         <Header />
         <Banner listMovie={listMovie} listMovieDetail={listMovieDetails} />
       </div>
