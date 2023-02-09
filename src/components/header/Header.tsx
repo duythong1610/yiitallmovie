@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <>
       <div className="header">
@@ -13,9 +13,7 @@ const Header = () => {
             <Link to={"/tv"}>TV Shows</Link>
           </div>
           <div className="menu-feature">
-            <button className="menu-button">
-              Đăng nhập
-            </button>
+            <button className="menu-button">Đăng nhập</button>
           </div>
         </div>
       </div>
