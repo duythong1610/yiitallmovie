@@ -1,0 +1,18 @@
+@import "../../../mixins.scss";
+
+.banner {
+  width: 100%;
+  height: 50%;
+  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  position: relative;
+  @include md {
+    width: 100%;
+    height: 900px;
+  }
+  .lazy-load-image-background {
+    width: 100%;
+    height: 100%;
+  }
+}
