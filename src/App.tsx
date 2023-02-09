@@ -13,6 +13,7 @@ import React, { useEffect } from "react";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
+import { MovieWatch } from "./components/Modal/Movies/MovieWatch";
 
 function App() {
   const { url } = useSelector((state: any) => state.home);
@@ -60,6 +61,7 @@ function App() {
       <Routes>
         <Route index element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
+        <Route path="/:mediaType/:id/watch" element={<MovieWatch />} />
         <Route path="/search/:query" element={<SearchResult />} />
         <Route path="/explore/:mediaType" element={<Explore />} />
         <Route path="*" element={<NotFound />} />
