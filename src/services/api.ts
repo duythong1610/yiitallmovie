@@ -1,7 +1,7 @@
 import axios from "../shared/axios";
 import { API_URL } from "../shared/constants";
 
-const getDataFromApi = async (url: string) => {
+const getDataFromApi = async (url: string, params?: any) => {
   try {
     const { data } = await axios.get(API_URL + url);
     return data;

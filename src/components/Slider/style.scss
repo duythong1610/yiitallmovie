@@ -1,12 +1,4 @@
 @import "../../mixins.scss";
-.slider-img {
-  object-fit: cover;
-  width: 100%;
-  border-radius: 12px;
-  filter: blur(0);
-  transition: filter 0.3s;
-}
-
 .slider-banner-img {
   width: 100% !important;
   height: 100%;
@@ -15,6 +7,8 @@
 }
 
 .slider-item {
+  border-radius: 12px;
+  overflow: hidden;
   width: 150px !important;
   cursor: pointer;
   @include md {
@@ -25,5 +19,30 @@
     font-size: 16px;
     text-align: center;
     margin-top: 10px;
+  }
+  .slider-img {
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+    filter: blur(0);
+    transition: filter 0.3s;
+  }
+  &:hover {
+    scale: 1.1;
+    transition: scale 0.8s ease-out;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: rgb(255, 255, 255) !important;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 20px !important;
+  padding: 100%;
+  @include md {
+    font-size: 40px !important;
   }
 }

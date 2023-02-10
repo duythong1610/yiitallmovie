@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { store } from "../src/store";
+import { RootState, store } from "../src/store";
 import { Provider } from "react-redux";
 import Home from "./pages/home/Home";
 // import { MovieWatch } from "./components/Movies/MovieWatch";
@@ -16,7 +16,7 @@ import Header from "./components/Header/Header";
 import { MovieWatch } from "./components/Modal/Movies/MovieWatch";
 
 function App() {
-  const { url } = useSelector((state: any) => state.home);
+  const { url } = useSelector((state: RootState) => state.home);
   const dispatch = useDispatch();
 
   useEffect(() => {
