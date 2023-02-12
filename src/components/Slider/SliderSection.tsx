@@ -22,7 +22,17 @@ export const SliderSection = ({ data, loading, endpoint, title }: any) => {
   const navigate = useNavigate();
   console.log(endpoint);
 
-  console.log(loading);
+  const skItem = () => {
+    return (
+      <div className="skeletonItem">
+        <div className="posterBlock skeleton"></div>
+        <div className="textBlock">
+          <div className="title skeleton"></div>
+          {/* <div className="date skeleton"></div> */}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <Swiper
@@ -61,7 +71,13 @@ export const SliderSection = ({ data, loading, endpoint, title }: any) => {
           )}
         </>
       ) : (
-        <Skeleton variant="rounded" width={200} height={400} />
+        <div className="loadingSkeleton">
+          {skItem()}
+          {skItem()}
+          {skItem()}
+          {skItem()}
+          {skItem()}
+        </div>
       )}
     </Swiper>
   );
