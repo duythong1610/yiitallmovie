@@ -27,6 +27,7 @@ const Banner = () => {
   return (
     <>
       <div className="banner">
+        <div className="backdrop"></div>
         <SliderBanner results={results} />
       </div>
     </>

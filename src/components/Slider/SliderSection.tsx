@@ -11,9 +11,7 @@ import "swiper/css/scrollbar";
 import { Autoplay, Navigation } from "swiper";
 
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { resizeImage } from "../../shared/utils";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
-import { Button, Skeleton } from "@mui/material";
+
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -28,7 +26,6 @@ export const SliderSection = ({ data, loading, endpoint, title }: any) => {
         <div className="posterBlock skeleton"></div>
         <div className="textBlock">
           <div className="title skeleton"></div>
-          {/* <div className="date skeleton"></div> */}
         </div>
       </div>
     );
@@ -63,7 +60,7 @@ export const SliderSection = ({ data, loading, endpoint, title }: any) => {
                       className="slider-img"
                       src={url.poster + film.poster_path}
                     ></LazyLoadImage>
-                    <p className="film-title">{film.title}</p>
+                    {/* <p className="film-title">{film.title}</p> */}
                   </SwiperSlide>
                 );
               })}

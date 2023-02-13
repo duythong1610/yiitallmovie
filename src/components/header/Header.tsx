@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import Container from "../Container/Container";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./style.scss";
+import NavMobile from "../NavMobile/NavMobile";
 
 const Header: React.FC = () => {
   const [query, setQuery] = useState("");
+  const [windowWidthSize, setWindowWidthSize] = useState(window.innerWidth);
   const navigate = useNavigate();
 
   const navigationHandler = (type: string) => {
@@ -16,6 +19,12 @@ const Header: React.FC = () => {
     // setMobileMenu(false);
   };
 
+  const handleSearch = (event: any) => {
+    if (query.length > 0) {
+      navigate(`/search/${query}`);
+    }
+  };
+
   const searchQueryHandler = (event: any): void => {
     if (event.key === "Enter" && query.length > 0) {
       navigate(`/search/${query}`);
@@ -24,37 +33,66 @@ const Header: React.FC = () => {
       // }, 1000);
     }
   };
+
+  useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowWidthSize(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  },[windowWidthSize]);
+
+  console.log(windowWidthSize);
   return (
     <>
-      <div className="header">
-        <div className="header-menu">
-          <ul className="menu-items">
-            <li className="menu-item" onClick={() => navigate("/")}>
-              Home
-            </li>
-            <li
-              className="menu-item"
-              onClick={() => navigationHandler("movie")}
-            >
-              Movies
-            </li>
-            <li className="menu-item" onClick={() => navigationHandler("tv")}>
-              TV Shows
-            </li>
-          </ul>
+      {windowWidthSize >= 768 ? (
+        <div className="header">
+          <Container>
+            <div className="header-menu">
+              <ul className="menu-items">
+                <li className="menu-item" onClick={() => navigate("/")}>
+                  Home
+                </li>
+                <li
+                  className="menu-item"
+                  onClick={() => navigationHandler("movie")}
+                >
+                  Movies
+                </li>
+                <li
+                  className="menu-item"
+                  onClick={() => navigationHandler("tv")}
+                >
+                  TV Shows
+                </li>
+              </ul>
 
-          <div className="menu-feature">
-            <input
-              className="search"
-              type="text"
-              placeholder="Search for a movie or tv show...."
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyUp={searchQueryHandler}
-            />
-            <button className="menu-button">Đăng nhập</button>
-          </div>
+              <div className="menu-feature">
+                <div className="form">
+                  <SearchOutlinedIcon
+                    className="search-icon"
+                    onClick={handleSearch}
+                  />
+                  <input
+                    className="search"
+                    type="text"
+                    placeholder="Search...."
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyUp={searchQueryHandler}
+                  />
+                </div>
+                <button className="menu-button">Đăng nhập</button>
+              </div>
+            </div>
+          </Container>
         </div>
-      </div>
+      ) : (
+        <NavMobile />
+      )}
     </>
   );
 };

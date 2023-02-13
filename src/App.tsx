@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { RootState, store } from "../src/store";
 import { Provider } from "react-redux";
@@ -14,6 +14,7 @@ import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
 import { MovieWatch } from "./components/Modal/Movies/MovieWatch";
+import NavMobile from "./components/NavMobile/NavMobile";
 
 function App() {
   const { url } = useSelector((state: RootState) => state.home);
@@ -58,7 +59,9 @@ function App() {
   return (
     <React.Fragment>
       <Header />
+
       <Routes>
+        <Route path="/nav" element={<NavMobile />} />
         <Route index element={<Home />} />
         <Route path="/:mediaType/:id" element={<Details />} />
         <Route path="/:mediaType/:id/watch" element={<MovieWatch />} />

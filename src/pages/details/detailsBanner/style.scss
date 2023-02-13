@@ -7,7 +7,7 @@
   @include md {
     margin-bottom: 0;
     padding-top: 120px;
-    min-height: 700px;
+    min-height: 750px;
   }
   .backdrop-img {
     width: 100%;
@@ -29,11 +29,11 @@
     }
   }
   .opacity-layer {
+    position: absolute;
+    z-index: -1;
     width: 100%;
     height: 250px;
     background: linear-gradient(180deg, rgba(4, 21, 45, 0) 0%, #040a12 80%);
-
-    position: absolute;
     bottom: 0;
     left: 0;
   }
@@ -106,10 +106,9 @@
         padding: 10px 20px;
         border-radius: 30px;
         &:hover {
-          background-color: var(--red);
+          background-color: var(--pink);
         }
         svg {
-         
           @include md {
             font-size: 30px;
           }
