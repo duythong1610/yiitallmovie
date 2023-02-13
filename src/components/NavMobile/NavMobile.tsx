@@ -11,8 +11,10 @@ const NavMobile = () => {
   const navigationHandler = (type: string) => {
     if (type === "movie") {
       navigate("/explore/movie");
+      setIsToggle(false);
     } else {
       navigate("/explore/tv");
+      setIsToggle(false);
     }
     // setMobileMenu(false);
   };
