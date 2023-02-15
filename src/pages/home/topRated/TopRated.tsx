@@ -15,7 +15,7 @@ const TopRated = () => {
   return (
     <Container>
       <div className="content-wrapper">
-        <span className="title">Top Rated</span>
+        <span className="title  dark:!text-black">Top Rated</span>
         <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
       </div>
       <div className="slider-section">

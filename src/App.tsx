@@ -58,17 +58,22 @@ function App() {
   };
   return (
     <React.Fragment>
-      <Header />
+      <div
+        className="background dark:text-black dark:bg-white duration-500
+      "
+      >
+        <Header />
 
-      <Routes>
-        <Route path="/nav" element={<NavMobile />} />
-        <Route index element={<Home />} />
-        <Route path="/:mediaType/:id" element={<Details />} />
-        <Route path="/:mediaType/:id/watch" element={<MovieWatch />} />
-        <Route path="/search/:query" element={<SearchResult />} />
-        <Route path="/explore/:mediaType" element={<Explore />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path="/nav" element={<NavMobile />} />
+          <Route index element={<Home />} />
+          <Route path="/:mediaType/:id" element={<Details />} />
+          <Route path="/:mediaType/:id/watch" element={<MovieWatch />} />
+          <Route path="/search/:query" element={<SearchResult />} />
+          <Route path="/explore/:mediaType" element={<Explore />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </React.Fragment>
   );
 }

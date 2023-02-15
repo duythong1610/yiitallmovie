@@ -15,7 +15,7 @@ const Popular = () => {
   return (
     <Container>
       <div className="content-wrapper">
-        <span className="title">Popular</span>
+        <span className="title dark:!text-black">Popular</span>
         <SwitchTabs data={["Movies", "TV Shows"]} onTabChange={onTabChange} />
       </div>
       <div className="slider-section">

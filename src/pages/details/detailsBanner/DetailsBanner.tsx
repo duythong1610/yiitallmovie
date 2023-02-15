@@ -44,12 +44,12 @@ const DetailsBanner = ({ video, crew }: any) => {
   };
 
   return (
-    <div className="detailsBanner">
+    <div className="detailsBanner dark:bg-white duration-500">
       {!loading ? (
         <>
           {!!data && (
             <React.Fragment>
-              <div className="backdrop-img">
+              <div className="backdrop-img dark:!opacity-40">
                 <LazyLoadImage src={url.backdrop + data.backdrop_path} />
               </div>
               <div className="opacity-layer"></div>
@@ -68,7 +68,7 @@ const DetailsBanner = ({ video, crew }: any) => {
                       />
                     )}
                   </div>
-                  <div className="right">
+                  <div className="right dark:!text-black duration-500">
                     <div className="title">
                       {`${data.name || data.title} (${dayjs(
                         data?.release_date
@@ -88,13 +88,15 @@ const DetailsBanner = ({ video, crew }: any) => {
                         </span>
                       </div>
                       <div
-                        className="playbtn"
+                        className="playbtn dark:bg-pink-500 duration-500"
                         onClick={() => {
                           setShow(true);
                         }}
                       >
-                        <PlayArrowIcon />
-                        <span className="text">Watch</span>
+                        <PlayArrowIcon className="dark:!text-white duration-500" />
+                        <span className="text dark:!text-white duration-500 ">
+                          Watch
+                        </span>
                       </div>
                     </div>
 

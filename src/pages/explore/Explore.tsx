@@ -99,7 +99,7 @@ const Explore = () => {
     <div className="explorePage">
       <Container>
         <div className="pageHeader">
-          <div className="pageTitle">
+          <div className="pageTitle dark:!text-black">
             {mediaType === "tv" ? "Explore TV Shows" : "Explore Movies"}
           </div>
           <div className="filters">

@@ -15,7 +15,7 @@ const Trending = () => {
   return (
     <Container>
       <div className="content-wrapper">
-        <span className="title">Trending</span>
+        <span className="title dark:!text-black">Trending</span>
         <SwitchTabs data={["Day", "Week"]} onTabChange={onTabChange} />
       </div>
       <div className="slider-section">

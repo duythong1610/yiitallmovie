@@ -19,7 +19,7 @@ const SwitchTabs = ({ data, onTabChange }: Props) => {
   };
 
   return (
-    <div className="switchingTabs">
+    <div className="switchingTabs dark:!bg-stone-200">
       <div className="tabItems">
         {data.map((tab: any, index: any) => (
           <span

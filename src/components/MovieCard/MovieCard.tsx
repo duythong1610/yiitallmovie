@@ -35,8 +35,8 @@ const MovieCard = ({ data, fromSearch, mediaType }: Props) => {
         )}
       </div>
       <div className="textBlock">
-        <span className="title">{data.title || data.name}</span>
-        <span className="date">
+        <span className="title dark:text-black">{data.title || data.name}</span>
+        <span className="date dark:text-black">
           {dayjs(data.release_date).format("MMM D, YYYY")}
         </span>
       </div>

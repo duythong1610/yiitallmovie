@@ -5,8 +5,12 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./style.scss";
 import NavMobile from "../NavMobile/NavMobile";
 
+
+import DarkMode from "../DarkMode/DarkMode";
+
 const Header: React.FC = () => {
   const [query, setQuery] = useState("");
+
   const [windowWidthSize, setWindowWidthSize] = useState(window.innerWidth);
   const navigate = useNavigate();
 
@@ -44,7 +48,7 @@ const Header: React.FC = () => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  },[windowWidthSize]);
+  }, [windowWidthSize]);
 
   console.log(windowWidthSize);
   return (
@@ -85,7 +89,7 @@ const Header: React.FC = () => {
                     onKeyUp={searchQueryHandler}
                   />
                 </div>
-                <button className="menu-button">Đăng nhập</button>
+                <DarkMode />
               </div>
             </div>
           </Container>

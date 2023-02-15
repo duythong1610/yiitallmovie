@@ -1,7 +1,17 @@
 .logo {
   width: 200px;
+  cursor: pointer;
 }
 
+.header-mobile {
+  position: fixed;
+  z-index: 10;
+  height: 60px;
+  width: 100%;
+  background: rgba(227, 213, 213, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+}
 .nav-btn {
   border: none;
   background-color: transparent;
@@ -15,7 +25,7 @@
   top: 10px;
   left: 10px;
   color: #fff;
-  & svg{
+  & svg {
     font-size: 40px;
   }
 }
@@ -30,6 +40,13 @@
   transition: transform 0.3s ease-in-out;
 }
 
+.dark-mode {
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  right: 0;
+  transition: transform 0.3s ease-in-out;
+}
 .nav.visible {
   transform: translateX(0);
 }
@@ -40,28 +57,26 @@
   max-width: 480px;
   min-width: 320px;
   transition-delay: 0.4s;
+  & .nav-pink {
+    background-color: var(--pink);
+    width: 95%;
+    transition-delay: 0.2s;
+    & .nav-white {
+      background-color: #fff;
+      width: 95%;
+      padding: 40px;
+      position: relative;
+      transition-delay: 0s;
+    }
+  }
 }
 
 .nav-black.visible {
   transition-delay: 0s;
 }
 
-.nav-red {
-  background-color: var(--pink);
-  width: 95%;
+.nav-pink.visible {
   transition-delay: 0.2s;
-}
-
-.nav-red.visible {
-  transition-delay: 0.2s;
-}
-
-.nav-white {
-  background-color: #fff;
-  width: 95%;
-  padding: 40px;
-  position: relative;
-  transition-delay: 0s;
 }
 
 .nav-white.visible {
@@ -72,16 +87,23 @@
   opacity: 0.3;
   position: absolute;
   top: 40px;
-  right: 30px;
+  right: 10px;
 }
 
 .list {
   list-style-type: none;
   padding: 0;
-}
-
-.list li {
-  margin: 20px 0;
+  & svg {
+    opacity: 0.7;
+  }
+  & li {
+    display: flex;
+    cursor: pointer;
+    margin: 20px 0;
+    font-size: 20px;
+    gap: 10px;
+    align-items: center;
+  }
 }
 
 .list li a {

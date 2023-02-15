@@ -24,7 +24,7 @@ const VideosSection = ({ data, loading }: any) => {
   return (
     <div className="videosSection">
       <Container>
-        <div className="sectionHeading">Official Videos</div>
+        <div className="sectionHeading dark:!text-black">Official Videos</div>
         {!loading ? (
           <div className="videos">
             {data?.results?.map((video: any) => (
@@ -42,7 +42,7 @@ const VideosSection = ({ data, loading }: any) => {
                   />
                   <PlayCircle />
                 </div>
-                <div className="videoTitle">{video.name}</div>
+                <div className="videoTitle dark:!text-black">{video.name}</div>
               </div>
             ))}
           </div>

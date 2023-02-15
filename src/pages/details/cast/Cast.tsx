@@ -29,7 +29,9 @@ const Cast = ({ data, loading }: TypeProps) => {
   return (
     <div className="castSection">
       <Container>
-        <div className="sectionHeading">Top Cast</div>
+        <div className="sectionHeading dark:!text-black duration-500">
+          Top Cast
+        </div>
         {!loading ? (
           <div className="listItems">
             {data?.map((item: any) => {
@@ -41,8 +43,12 @@ const Cast = ({ data, loading }: TypeProps) => {
                   <div className="profileImg">
                     <LazyLoadImage src={imgUrl} />
                   </div>
-                  <div className="name">{item.name}</div>
-                  <div className="character">{item.character}</div>
+                  <div className="name dark:!text-black duration-500">
+                    {item.name}
+                  </div>
+                  <div className="character dark:!text-black duration-500  ">
+                    {item.character}
+                  </div>
                 </div>
               );
             })}
