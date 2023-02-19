@@ -15,6 +15,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Header from "./components/Header/Header";
 import { MovieWatch } from "./components/Modal/Movies/MovieWatch";
 import NavMobile from "./components/NavMobile/NavMobile";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const { url } = useSelector((state: RootState) => state.home);
@@ -63,7 +64,6 @@ function App() {
       "
       >
         <Header />
-
         <Routes>
           <Route path="/nav" element={<NavMobile />} />
           <Route index element={<Home />} />
@@ -73,6 +73,7 @@ function App() {
           <Route path="/explore/:mediaType" element={<Explore />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </div>
     </React.Fragment>
   );

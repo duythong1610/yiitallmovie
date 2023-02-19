@@ -11,7 +11,10 @@ const Genres = ({ data }: any) => {
       {data?.map((g: any) => {
         if (!genres[g]?.name) return;
         return (
-          <div key={g} className="genre dark:!bg-pink-500 dark:text-white duration-500">
+          <div
+            key={g}
+            className="genre dark:!bg-black dark:text-white duration-500"
+          >
             {genres[g]?.name}
           </div>
         );

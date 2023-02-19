@@ -88,7 +88,7 @@ const DetailsBanner = ({ video, crew }: any) => {
                         </span>
                       </div>
                       <div
-                        className="playbtn dark:bg-pink-500 duration-500"
+                        className="playbtn dark:bg-black duration-500"
                         onClick={() => {
                           setShow(true);
                         }}

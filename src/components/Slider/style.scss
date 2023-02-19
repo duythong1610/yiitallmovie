@@ -81,6 +81,9 @@
   @include sm {
     width: calc(20% - 20px) !important;
   }
+  & span {
+    height: 100% !important;
+  }
   .film-title {
     color: white;
     font-size: 16px;

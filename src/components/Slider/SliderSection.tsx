@@ -54,7 +54,7 @@ export const SliderSection = ({ data, loading, endpoint, title }: any) => {
                   >
                     <LazyLoadImage
                       effect="blur"
-                      className="slider-img"
+                      className="slider-img h-full"
                       src={url.poster + film.poster_path}
                     ></LazyLoadImage>
                     {/* <p className="film-title">{film.title}</p> */}

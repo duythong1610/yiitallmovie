@@ -1,0 +1,27 @@
+.footer {
+  padding: 50px 100px;
+  text-align: center;
+  color: white;
+  &-title {
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .contact {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    .contact-link {
+      cursor: pointer;
+      display: flex;
+      gap: 5px;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        color: var(--pink);
+        transition: color 0.4s ease-in-out;
+      }
+    }
+  }
+}

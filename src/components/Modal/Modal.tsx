@@ -1,5 +1,5 @@
 import * as React from "react";
-import { MovieWatch } from "./Movies/MovieWatch";
+import { TrailerWatch } from "./Movies/TrailerWatch";
 import "./style.scss";
 
 export const VideoPopup = ({ show, setShow, id }: any) => {
@@ -18,7 +18,7 @@ export const VideoPopup = ({ show, setShow, id }: any) => {
         <span className="closeBtn" onClick={hidePopup}>
           Close
         </span>
-        <MovieWatch id={id} />
+        <TrailerWatch id={id} />
       </div>
     </div>
   );

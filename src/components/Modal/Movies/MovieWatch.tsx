@@ -1,6 +1,5 @@
 import React from "react";
 import { embedMovie } from "../../../shared/utils";
-import { useParams } from "react-router-dom";
 
 export const MovieWatch = ({ id }: any) => {
   return (
