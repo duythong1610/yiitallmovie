@@ -6,13 +6,16 @@ import { useNavigate } from "react-router-dom";
 import LoginIcon from "@mui/icons-material/Login";
 import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 import LiveTvIcon from "@mui/icons-material/LiveTv";
-import DarkMode from "../DarkMode/DarkMode";
+import DarkMode from "../darkmode/DarkMode";
+
 const NavMobile = () => {
   const [isToggle, setIsToggle] = useState(false);
   const [query, setQuery] = useState("");
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "dark"
   );
+
+  const Logo = require("../../assets/logo.gif");
   const navigate = useNavigate();
 
   const navigationHandler = (type: string) => {
@@ -33,7 +36,6 @@ const NavMobile = () => {
     setIsToggle((current) => !current);
   };
 
-  console.log(theme);
   return (
     <>
       <div>
@@ -56,7 +58,7 @@ const NavMobile = () => {
                 <CancelIcon />
               </button>
               <img
-                src="https://cdnportal.mobalytics.gg/production/2020/07/yasuo-spirit-blossom-splash.jpg"
+                src={Logo}
                 alt="Logo"
                 className="logo"
                 onClick={() => navigationHandler("/")}

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Container from "../Container/Container";
+import Container from "../container/Container";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import "./style.scss";
-import NavMobile from "../NavMobile/NavMobile";
+import NavMobile from "../navmobile/NavMobile";
 
-
-import DarkMode from "../DarkMode/DarkMode";
+import DarkMode from "../darkmode/DarkMode";
 
 const Header: React.FC = () => {
   const [query, setQuery] = useState("");
@@ -50,7 +49,6 @@ const Header: React.FC = () => {
     };
   }, [windowWidthSize]);
 
-  console.log(windowWidthSize);
   return (
     <>
       {windowWidthSize >= 768 ? (

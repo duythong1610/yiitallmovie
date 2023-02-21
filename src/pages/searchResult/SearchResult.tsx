@@ -5,8 +5,8 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import "./style.scss";
 
 import { getDataFromApi } from "../../services/api";
-import Container from "../../components/Container/Container";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import Container from "../../components/container/Container";
+import MovieCard from "../../components/moviecard/MovieCard";
 import { ItemsPage, Item } from "../../shared/types";
 
 const SearchResult = () => {

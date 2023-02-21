@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Container from "../../../components/Container/Container";
-import { SliderSection } from "../../../components/Slider/SliderSection";
-import SwitchTabs from "../../../components/SwitchTabs/SwitchTabs";
+import Container from "../../../components/container/Container";
+import { SliderSection } from "../../../components/slider/SliderSection";
+import SwitchTabs from "../../../components/switchtabs/SwitchTabs";
 import useFetch from "../../../hooks/useFetch";
 
 const Trending = () => {
@@ -19,7 +19,11 @@ const Trending = () => {
         <SwitchTabs data={["Day", "Week"]} onTabChange={onTabChange} />
       </div>
       <div className="slider-section">
-        <SliderSection data={data?.results} loading={loading} endpoint={endpoint} />
+        <SliderSection
+          data={data?.results}
+          loading={loading}
+          endpoint={endpoint}
+        />
       </div>
     </Container>
   );

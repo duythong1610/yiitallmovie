@@ -12,10 +12,10 @@ import { getDataFromApi } from "./services/api";
 import React, { useEffect } from "react";
 import { getApiConfiguration, getGenres } from "./store/homeSlice";
 import { useSelector, useDispatch } from "react-redux";
-import Header from "./components/Header/Header";
-import { MovieWatch } from "./components/Modal/Movies/MovieWatch";
-import NavMobile from "./components/NavMobile/NavMobile";
-import Footer from "./components/Footer/Footer";
+import Header from "./components/header/Header";
+import { MovieWatch } from "./components/Modal/movies/MovieWatch";
+import NavMobile from "./components/navmobile/NavMobile";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const { url } = useSelector((state: RootState) => state.home);
@@ -28,8 +28,6 @@ function App() {
 
   const fetchApiConfig = () => {
     getDataFromApi("/configuration").then((res) => {
-      console.log(res);
-
       const url = {
         backdrop: res.images.secure_base_url + "original",
         poster: res.images.secure_base_url + "original",
@@ -50,7 +48,6 @@ function App() {
     });
 
     const data = await Promise.all(promises);
-    console.log(data);
     data.map(({ genres }) => {
       return genres.map((item: any) => (allGenres[item.id] = item));
     });

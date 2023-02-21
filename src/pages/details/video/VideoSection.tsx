@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./style.scss";
 
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/container/Container";
 import { VideoPopup } from "../../../components/Modal/Modal";
 import PlayCircle from "@mui/icons-material/PlayCircle";
 import { LazyLoadImage } from "react-lazy-load-image-component";

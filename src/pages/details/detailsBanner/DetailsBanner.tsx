@@ -7,8 +7,8 @@ import "./style.scss";
 
 import useFetch from "../../../hooks/useFetch";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Container from "../../../components/Container/Container";
-import Genres from "../../../components/Genres/Genres";
+import Container from "../../../components/container/Container";
+import Genres from "../../../components/genres/Genres";
 import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 import StarIcon from "@mui/icons-material/Star";
 import { VideoPopup } from "../../../components/Modal/Modal";

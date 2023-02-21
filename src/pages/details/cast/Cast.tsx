@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 import "./style.scss";
 
-import Container from "../../../components/Container/Container";
+import Container from "../../../components/container/Container";
 
 import { Cast as CastTypes } from "../../../shared/types";
 import { RootState } from "../../../store";

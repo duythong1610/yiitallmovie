@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import "./style.scss";
 import useFetch from "../../../hooks/useFetch";
 import { resizeImage } from "../../../shared/utils";
-import { SliderBanner } from "../../../components/Slider/SilderBanner";
+import { SliderBanner } from "../../../components/slider/SilderBanner";
 const Banner = () => {
   const [results, setResult] = useState("");
   const [query, setQuery] = useState("");

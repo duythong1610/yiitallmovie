@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Autocomplete, TextField, createFilterOptions } from "@mui/material";
@@ -7,20 +7,14 @@ import "./style.scss";
 
 import useFetch from "../../hooks/useFetch";
 import { getDataFromApi } from "../../services/api";
-import Container from "../../components/Container/Container";
-import MovieCard from "../../components/MovieCard/MovieCard";
-import Loading from "../../components/Loading/Loading";
+import Container from "../../components/container/Container";
+import MovieCard from "../../components/moviecard/MovieCard";
+import Loading from "../../components/loading/Loading";
 // import Spinner from "../../components/spinner/Spinner";
 
-let filters = {};
-const filter = createFilterOptions<FilmOptionType>();
-interface FilmOptionType {
-  value: string;
-  label?: string;
-  suggested?: boolean;
-}
+// const filter = createFilterOptions<>();
 
-const sortByData: FilmOptionType[] = [
+const sortByData: any = [
   { value: "popularity.desc", label: "Popularity Descending" },
   { value: "popularity.asc", label: "Popularity Ascending" },
   { value: "vote_average.desc", label: "Rating Descending" },
@@ -33,12 +27,22 @@ const sortByData: FilmOptionType[] = [
   { value: "original_title.asc", label: "Title (A-Z)" },
 ];
 
+interface IFilter {
+  sort_by: string;
+  with_genres: string;
+}
+let filters: IFilter | any = {
+  sort_by: "",
+  with_genres: "",
+};
+
 const Explore = () => {
   const [data, setData] = useState<any>(null);
   const [pageNum, setPageNum] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [genre, setGenre] = useState(null);
-  const [value, setValue] = useState<FilmOptionType | null>(null);
+  const [genre, setGenre] = useState<any>();
+  const [option, setOption] = useState<any>(null);
+
   const { mediaType }: any = useParams();
 
   const { data: genresData }: any = useFetch(`/genre/${mediaType}/list`);
@@ -51,6 +55,10 @@ const Explore = () => {
       setLoading(false);
     });
   };
+
+  const genreRender = genresData?.genres;
+  console.log(genreRender);
+  // console.log(genre);
 
   const fetchNextPageData = () => {
     getDataFromApi(`/discover/${mediaType}?page=${pageNum}`, filters).then(
@@ -72,32 +80,25 @@ const Explore = () => {
     filters = {};
     setData(null);
     setPageNum(1);
-    setValue(null);
+    // setValue(null);
     setGenre(null);
     fetchInitialData();
   }, [mediaType]);
 
-  const onChange = (e: any, action: any) => {
-    // if (action.name === "sortby") {
-    //   setSortby(selectedItems);
-    //   if (action.action !== "clear") {
-    //     filters.sort_by = selectedItems.value;
-    //   } else {
-    //     delete filters.sort_by;
-    //   }
-    // }
-    // if (action.name === "genres") {
-    //   setGenre(selectedItems);
-    //   if (action.action !== "clear") {
-    //     let genreId = selectedItems.map((g: any) => g.id);
-    //     genreId = JSON.stringify(genreId).slice(1, -1);
-    //     filters.with_genres = genreId;
-    //   } else {
-    //     delete filters.with_genres;
-    //   }
-    // }
-    // setPageNum(1);
-    // fetchInitialData();
+  const onChangeSortBy = (e: any, selectedItems: any) => {
+    setOption(selectedItems);
+    filters.sort_by = selectedItems.value;
+    setPageNum(1);
+    fetchInitialData();
+  };
+
+  const onChangeGenres = (e: any, selectedItems: any) => {
+    setGenre(selectedItems);
+    let genreId = selectedItems.map((g: any) => g.id);
+    genreId = JSON.stringify(genreId).slice(1, -1);
+    filters.with_genres = genreId;
+    setPageNum(1);
+    fetchInitialData();
   };
 
   return (
@@ -120,14 +121,35 @@ const Explore = () => {
               classNamePrefix="react-select"
   /> */}
             <Autocomplete
+              className="dark:text-red-900"
               sx={{ width: 300 }}
               options={sortByData}
-              autoHighlight
-              getOptionLabel={(option: any) => option.label}
+              value={option}
+              getOptionLabel={(option) => option.label as string}
+              onChange={onChangeSortBy}
+              renderInput={(params) => (
+                <TextField
+                  className="dark:!text-white !text-red-800"
+                  {...params}
+                  label="Sort by"
+                  inputProps={{
+                    ...params.inputProps,
+                  }}
+                />
+              )}
+            />
+
+            <Autocomplete
+              multiple
+              sx={{ width: 300, maxHeight: 50 }}
+              options={genreRender || ""}
+              value={genre}
+              onChange={onChangeGenres}
+              getOptionLabel={(option) => option.name as string}
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Choose a country"
+                  label="Choose a genres"
                   inputProps={{
                     ...params.inputProps,
                   }}

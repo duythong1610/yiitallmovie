@@ -7,7 +7,7 @@ import { Item } from "../../shared/types";
 import "./style.scss";
 import { RootState } from "../../store";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
+const NoPoster = require("../../assets/poster.png");
 interface Props {
   data: Item;
   fromSearch: boolean;
@@ -17,9 +17,7 @@ interface Props {
 const MovieCard = ({ data, fromSearch, mediaType }: Props) => {
   const { url }: any = useSelector((state: RootState) => state.home);
   const navigate = useNavigate();
-  const posterUrl = data.poster_path
-    ? url.poster + data.poster_path
-    : undefined;
+  const posterUrl = data.poster_path ? url.poster + data.poster_path : NoPoster;
   return (
     <div
       className="movieCard"

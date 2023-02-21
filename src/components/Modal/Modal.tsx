@@ -1,5 +1,5 @@
 import * as React from "react";
-import { TrailerWatch } from "./Movies/TrailerWatch";
+import { TrailerWatch } from "./movies/TrailerWatch";
 import "./style.scss";
 
 export const VideoPopup = ({ show, setShow, id }: any) => {
